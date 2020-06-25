@@ -36,7 +36,6 @@ public class Obtainable : MonoBehaviour {
                 {
                     fish.GetComponent<SpriteRenderer>().sprite = fish.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
                     myDic[fish] = true;
-                    Debug.Log("set fish " + fish.name + " to be obtainable");
                 }
             }
             else
@@ -45,7 +44,6 @@ public class Obtainable : MonoBehaviour {
                 {
                     fish.GetComponent<SpriteRenderer>().sprite = fish.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
                     myDic[fish] = false;
-                    Debug.Log("set fish " + fish.name + " to be unobtainable");
                 }
             }
         }
