@@ -29,13 +29,14 @@ public class Obtainable : MonoBehaviour {
     {
         if (fish.CompareTag("Fish"))
         {
-            bool nig = IsObtainable(fish.transform);
-            if (nig)
+            bool obtainable = IsObtainable(fish.transform);
+            if (obtainable)
             {
                 if (!myDic[fish])
                 {
                     fish.GetComponent<SpriteRenderer>().sprite = fish.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite;
                     myDic[fish] = true;
+                    Debug.Log("set fish " + fish.name + " to be obtainable");
                 }
             }
             else
@@ -44,6 +45,7 @@ public class Obtainable : MonoBehaviour {
                 {
                     fish.GetComponent<SpriteRenderer>().sprite = fish.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
                     myDic[fish] = false;
+                    Debug.Log("set fish " + fish.name + " to be unobtainable");
                 }
             }
         }
@@ -51,7 +53,7 @@ public class Obtainable : MonoBehaviour {
 
     bool IsObtainable(Transform fish)
     {
-        if (160f * transform.localScale.x <= fish.GetComponent<SpriteRenderer>().sprite.rect.xMax)
+        if (160f * bubble.transform.localScale.x <= fish.GetComponent<SpriteRenderer>().sprite.rect.xMax)
         {
             return false;
         }
